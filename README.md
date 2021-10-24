@@ -33,41 +33,37 @@ Stack: Backend (Flask, Flask-Cors), Fronend (React.js, React-router, tawian css)
 
 I will provide you with instructions on how to run this in your local environment.
 
+```
+git clone https://github.com/grykom/xbox_game_pass_react_flask.git
+cd xbox_game_pass_react_flask
+```
+
 ### Backend - Flask
 
-To run backend app you will need to install Flask and Flask-Cors (do it on yours venv):
+To run backend app you will need to install Flask and Flask-Cors (do it on yours python venv):
 
 ```
 pip install Flask==2.0.2
 pip install Flask-Cors==3.0.10
 ```
 
-then run it by:
+then run flask by:
 
 ```
-cd backend
-flask run
+xbox_game_pass_react_flask> cd backend
+xbox_game_pass_react_flask\backend> flask run
 ```
 
 It should be running on http://127.0.0.1:5000/ (if not - remember url)
 
 ### Frontend - React
 
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
+Check (or change) backend API_IP in src/App.js, then:
 
 ```
-Give the example
+xbox_game_pass_react_flask> npm install
+xbox_game_pass_react_flask> npm start
 ```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo.
 
 ## Usage <a name = "usage"></a>
 

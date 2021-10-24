@@ -100,10 +100,7 @@ function App() {
         if(response.status === 200){
             const oldItems = JSON.parse(localStorage.getItem('game_properties')) || [];
             const freshItems = await response.json()
-            freshItems.map(game => {
-                oldItems.push(game)
-                }                    
-            )
+            freshItems.map(game => oldItems.push(game) )
             localStorage.setItem('game_properties', JSON.stringify(oldItems));
             setGames(oldItems);
             setLoading(slicedPercent);
