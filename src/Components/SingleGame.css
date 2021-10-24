@@ -1,0 +1,16 @@
+caption {
+  caption-side: top;
+  margin: 4px;
+}
+
+.cell-game {
+  overflow-y: auto;
+  height: 85vh;
+  padding-right: 1px;
+}
+.tag {
+  margin-left: 10px;
+}
+.width-90 {
+  max-width: 100px;
+}
