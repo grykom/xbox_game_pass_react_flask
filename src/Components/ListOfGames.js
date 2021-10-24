@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from "react-router-dom";
+import './ListOfGames.css';
 
 function ListOfGames({ loading, games, gamesReady, input }) {
     const loadingStyle = {
@@ -8,7 +9,7 @@ function ListOfGames({ loading, games, gamesReady, input }) {
 
     return (
         <div className="cell">
-                <div className="list-group list-striped cell-list">
+            <div className="list-group list-striped cell-list">
                 {gamesReady ? 
                     games
                     .filter(game => input === '' || game.game_name.toLowerCase().includes(input))
@@ -19,8 +20,8 @@ function ListOfGames({ loading, games, gamesReady, input }) {
                             <div style={loadingStyle}>{ loading }%</div>
                         </div>
                     </div>}
-                </div>
             </div>
+        </div>
     )
 }
 

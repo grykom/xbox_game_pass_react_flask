@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# List of XGP games - website built with React.JS and Flask
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![IMAGE_DESCRIPTION](demo_image.png)
 
-## Available Scripts
+## [Live demo](#about)
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [About](#about)
+- [Getting Started](#getting_started)
+- [Usage](#usage)
+- [Contributing](../CONTRIBUTING.md)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## About <a name = "about"></a>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+This is one of my first projects created in React.JS<br />
+I know the code isn't perfect, but at this point I'm happy with it and hopefully I'll be able to improve it over time as I gain more skills. <br />
+Game data can be retrieved directly from Microsoft servers from two endpoints:
 
-### `npm test`
+- the first provides only the game IDs
+- the second one (using the POST method) provides data on the given game IDs
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I decided to create additional API endpoints (ms API -> my API -> React) for two reasons:
 
-### `npm run build`
+- CORS issues
+- the second endpoint from Microsoft provieds a lot of data (not needed for me) so my API filters it and passes to me the ones I need.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Normally I would use Django for this, but I decided to use (for the first time) Flask
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Stack: Backend (Flask, Flask-Cors), Fronend (React.js, React-router, tawian css)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Getting Started <a name = "getting_started"></a>
 
-### `npm run eject`
+I will provide you with instructions on how to run this in your local environment.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Backend - Flask
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To run backend app you will need to install Flask and Flask-Cors (do it on yours venv):
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+pip install Flask==2.0.2
+pip install Flask-Cors==3.0.10
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+then run it by:
 
-## Learn More
+```
+cd backend
+flask run
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+It should be running on http://127.0.0.1:5000/ (if not - remember url)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Frontend - React
 
-### Code Splitting
+A step by step series of examples that tell you how to get a development env running.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Say what the step will be
 
-### Analyzing the Bundle Size
+```
+Give the example
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+And repeat
 
-### Making a Progressive Web App
+```
+until finished
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+End with an example of getting some data out of the system or using it for a little demo.
 
-### Advanced Configuration
+## Usage <a name = "usage"></a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Add notes about how to use the system.

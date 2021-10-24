@@ -10,27 +10,34 @@ import Header from "./Components/Header/Header";
 import ListOfGames from "./Components/ListOfGames";
 import WelcomePage from "./Components/WelcomePage";
 
-function App() {   
+const API_IP = 'http://127.0.0.1:5000'
+
+function App() {
+    // localstorages
+    const localStorageLanguage = JSON.parse(localStorage.getItem('lang'))
+    const localStorageGameIds = JSON.parse(localStorage.getItem('game_ids'))
+    const localStorageGameProperties = JSON.parse(localStorage.getItem('game_properties'))
+
     const location = useLocation(); 
     const [ apiError, setApiError ] = useState(false);
 
     const [ welcomeInfo, setWelcomeInfo ] = useState([]);
-    const [ gameIds, setGameIds ] = useState(JSON.parse(localStorage.getItem('game_ids')) || []);
+    const [ gameIds, setGameIds ] = useState(localStorageGameIds || []);
     const [ gameIdsReady, setGameIdsReady ] = useState(false);
 
-    const [ games, setGames ] = useState(JSON.parse(localStorage.getItem('game_properties')) || []);
+    const [ games, setGames ] = useState(localStorageGameProperties || []);
     const [ gamesReady, setGamesReady ] = useState(false);
 
     const [ loading, setLoading ] = useState(0);
     const [ input, setInput ] = useState('');
-    const [ language, setLanguage ] = useState(JSON.parse(localStorage.getItem('lang')) || 'en-us');
+    const [ language, setLanguage ] = useState(localStorageLanguage || 'en-us');
 
     useEffect(() => {
         fetchGameIds(); 
     }, [language]);   
     
     const fetchGameIds = async () => { 
-        const response = await fetch(`http://127.0.0.1:5000/api/games/list/${language}`)
+        const response = await fetch(`${API_IP}/api/games/list/${language}`)
         if(response.status === 200){
             const items = await response.json()
             const gameIdsArray = []
@@ -52,7 +59,7 @@ function App() {
                 return true;
             }
 
-            if(arraysEqual(gameIdsArray, JSON.parse(localStorage.getItem('game_ids')))){
+            if(arraysEqual(gameIdsArray, localStorageGameIds)){
                 // localstorage has exactly the same content
                 setGamesReady(true);
             }else{
@@ -89,7 +96,7 @@ function App() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(slicedArray)
         };            
-        const response = await fetch(`http://127.0.0.1:5000/api/games/info/${language}`, method)
+        const response = await fetch(`${API_IP}/api/games/info/${language}`, method)
         if(response.status === 200){
             const oldItems = JSON.parse(localStorage.getItem('game_properties')) || [];
             const freshItems = await response.json()
@@ -143,6 +150,7 @@ function App() {
                     </Switch>
                 </div>
             </div>
+            <div className="footer"><a href="https://github.com/grykom/xbox_game_pass_react_flask">github</a></div>
             </>
         }
     </div>

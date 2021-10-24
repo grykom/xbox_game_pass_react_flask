@@ -15,7 +15,7 @@ def get_games(language):
         games_response = requests.get(url).json()
         return jsonify(games_response)
     except:
-        return jsonify("Api error"), 400
+        return jsonify("API error while downloading list of games"), 400
 
 
 @app.route("/api/games/info/<language>", methods=["POST"])
@@ -27,7 +27,7 @@ def get_info(language):
     try:
         all_games_response = requests.post(url, json=payload).json()
     except:
-        return "Api error", 400
+        return jsonify("API error while downloading games data"), 400
 
     try:
         all_games_array = []
