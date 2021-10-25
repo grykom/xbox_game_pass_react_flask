@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { GamesContext } from "../Context";
 
-function WelcomePage({ welcomeInfo }) {
+
+function WelcomePage() {
+    const { welcomeInfo } = useContext(GamesContext);
     return (
         <div>
             <img className="full-width" src={welcomeInfo.imageUrl} alt={welcomeInfo.title}></img>
@@ -9,5 +12,4 @@ function WelcomePage({ welcomeInfo }) {
         </div>
     )
 }
-
 export default WelcomePage

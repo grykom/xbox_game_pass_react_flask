@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react';
 import { NavLink } from "react-router-dom";
 import './ListOfGames.css';
+import { GamesContext } from "../Context"
 
-function ListOfGames({ loading, games, gamesReady, input }) {
+
+function ListOfGames() {
+    const { loading, games, gamesReady, input } = useContext(GamesContext);
     const loadingStyle = {
         width: `${ loading }%`
     };
@@ -22,5 +25,4 @@ function ListOfGames({ loading, games, gamesReady, input }) {
         </div>
     )
 }
-
 export default ListOfGames

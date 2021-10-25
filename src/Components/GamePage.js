@@ -1,11 +1,13 @@
-import React from 'react';
-import { useLocation, useRouteMatch } from "react-router-dom";
-
+import React, { useContext } from 'react';
+import { useRouteMatch } from "react-router-dom";
 import './GamePage.css';
+import { GamesContext } from "../Context"
 
 
-function GamePage({ gamesReady, games }) {
+function GamePage() {
     const match = useRouteMatch();
+    const { gamesReady, games } = useContext(GamesContext);
+
     return (
         <div>
             {gamesReady && (
@@ -55,5 +57,4 @@ function SingleGame({ game }) {
         </div>
     )
 }
-
 export default GamePage
