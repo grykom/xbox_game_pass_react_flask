@@ -5,7 +5,7 @@ import LangOption from "./LangOption";
 function Header({handleType, handleLanguageSelect, input, language}) {
     return (
         <div className="grid-inline m-b-1">
-            <input className="cell" type="text" value={input} onChange={handleType} placeholder="game title" />
+            <input className="cell" type="text" value={input} onChange={handleType} placeholder="search for game title" />
             <select
                 value={language}
                 onChange={handleLanguageSelect}

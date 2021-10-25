@@ -5,7 +5,7 @@ import 'tawian-frontend';
 import 'typeface-cousine';
 import './App.css';
 
-import SingleGame from "./Components/SingleGame";
+import GamePage from "./Components/GamePage";
 import Header from "./Components/Header/Header";
 import ListOfGames from "./Components/ListOfGames";
 import WelcomePage from "./Components/WelcomePage";
@@ -17,8 +17,7 @@ function App() {
     const localStorageLanguage = JSON.parse(localStorage.getItem('lang'))
     const localStorageGameIds = JSON.parse(localStorage.getItem('game_ids'))
     const localStorageGameProperties = JSON.parse(localStorage.getItem('game_properties'))
-
-    const location = useLocation(); 
+     
     const [ apiError, setApiError ] = useState(false);
 
     const [ welcomeInfo, setWelcomeInfo ] = useState([]);
@@ -129,20 +128,16 @@ function App() {
             <>
             <Header handleType={(e) => setInput(e.target.value.toLowerCase())} handleLanguageSelect={handleLanguageSelect} input={input} language={language} />
             <div className="grid">
-                <ListOfGames loading={loading} games={games} gamesReady={gamesReady} input={input} />
+                <div className="cell">
+                    <ListOfGames loading={loading} games={games} gamesReady={gamesReady} input={input} />
+                </div>
                 <div className="cell">
                     <Switch>
                         <Route path="/" exact>
                             <WelcomePage welcomeInfo={welcomeInfo} />
                         </Route>
                         <Route path="/:game_id"> 
-                        {gamesReady && (
-                            <div>
-                                {games
-                                    .filter(game => game.game_id.includes(location.pathname.slice(1)))
-                                    .map((game, idx) => <SingleGame key={idx} game={game} /> )}
-                            </div>
-                        )}
+                            <GamePage gamesReady={gamesReady} games={games} />
                         </Route> 
                     </Switch>
                 </div>

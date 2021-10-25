@@ -2,7 +2,6 @@ caption {
   caption-side: top;
   margin: 4px;
 }
-
 .cell-game {
   overflow-y: auto;
   height: 90vh;
@@ -12,5 +11,5 @@ caption {
   margin-left: 10px;
 }
 .width-90 {
-  max-width: 100px;
+  max-width: 80px;
 }

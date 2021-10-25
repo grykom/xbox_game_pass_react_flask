@@ -67,4 +67,12 @@ xbox_game_pass_react_flask> npm start
 
 ## Usage <a name = "usage"></a>
 
-Add notes about how to use the system.
+- open url
+- change yours region
+- first time up to 20 seconds
+- then cashed from localstorage
+
+things to do:
+
+- refactor to simpler / clear code
+- writing tests

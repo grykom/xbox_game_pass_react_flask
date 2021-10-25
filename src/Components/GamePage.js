@@ -1,6 +1,23 @@
 import React from 'react';
-import './SingleGame.css';
+import { useLocation, useRouteMatch } from "react-router-dom";
 
+import './GamePage.css';
+
+
+function GamePage({ gamesReady, games }) {
+    const match = useRouteMatch();
+    return (
+        <div>
+            {gamesReady && (
+                <div>
+                    {games
+                        .filter(game => game.game_id.includes(match.params.game_id))
+                        .map((game, idx) => <SingleGame key={idx} game={game} /> )}
+                </div>
+            )}
+        </div>
+    )
+}
 
 function SingleGame({ game }) {
     return (
@@ -39,4 +56,4 @@ function SingleGame({ game }) {
     )
 }
 
-export default SingleGame
+export default GamePage
