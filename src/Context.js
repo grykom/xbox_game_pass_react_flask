@@ -39,13 +39,13 @@ function GamesContextProvider(props){
             ) 
             
             // check if localstore has the same data as a new 'game IDs' array
-            function arraysEqual(a, b) {
+            const arraysEqual = (a, b) => {
                 // https://stackoverflow.com/questions/3115982/how-to-check-if-two-arrays-are-equal-with-javascript/16430730
                 if (a === b) return true;
                 if (a == null || b == null) return false;
                 if (a.length !== b.length) return false;
                 for (let i = 0; i < a.length; ++i) {
-                if (a[i] !== b[i]) return false;
+                    if (a[i] !== b[i]) return false;
                 }
                 return true;
             }
@@ -102,13 +102,12 @@ function GamesContextProvider(props){
     return (
         <GamesContext.Provider
             value = {{
-                apiError, 
+                apiError, welcomeInfo,
                 input, setInput,
                 language, setLanguage,
                 loading, setLoading,
                 setGameIds, setGameIdsReady,
-                setGames, setGamesReady,
-                welcomeInfo,
+                setGames, setGamesReady,                
                 games, gamesReady
             }}>
             { props.children }

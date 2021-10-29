@@ -2,7 +2,7 @@
 
 ![IMAGE_DESCRIPTION](demo_image.png)
 
-## [Live demo](#about)
+# [Live demo](https://xgp.grykom.pl/)
 
 ## Table of Contents
 
@@ -27,7 +27,7 @@ I decided to create additional API endpoints (ms API -> my API -> React) for two
 
 Normally I would use Django for this, but I decided to use (for the first time) Flask
 
-Stack: Backend (Flask, Flask-Cors), Fronend (React.js, React-router, tawian css)
+Stack: Backend (Flask, Flask-Cors), Frontend (React.js, React-router, tawian css, localStorage)
 
 ## Getting Started <a name = "getting_started"></a>
 
@@ -43,6 +43,7 @@ cd xbox_game_pass_react_flask
 To run backend app you will need to install Flask and Flask-Cors (do it on yours python venv):
 
 ```
+pip install requests
 pip install Flask==2.0.2
 pip install Flask-Cors==3.0.10
 ```
@@ -58,7 +59,7 @@ It should be running on http://127.0.0.1:5000/ (if not - remember url)
 
 ### Frontend - React
 
-Check (or change) backend API_IP in src/App.js, then:
+Check (or change) backend API_IP in src/Context.js and run App with:
 
 ```
 xbox_game_pass_react_flask> npm install
@@ -67,12 +68,7 @@ xbox_game_pass_react_flask> npm start
 
 ## Usage <a name = "usage"></a>
 
-- open url
-- change yours region
-- first time up to 20 seconds
-- then cashed from localstorage
+At first, the system retrieve the game titles as well as the game data from Microsoft to the localStorage of your browser. When selecting another region (top right) it does it again. It can take even 20 seconds.
+When you refresh the page or open it again, only the game titles are retrieved to check if any new games have arrived. If not, the data is loaded from your browser. 
 
-things to do:
-
-- refactor to simpler / clear code
-- writing tests
+Have fun!
